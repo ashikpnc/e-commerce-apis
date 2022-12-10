@@ -4,6 +4,8 @@ import authRouter from './routes/auth.routes'
 import userRouter from './routes/user.routes'
 import vendorRouter from './routes/vendor.routes'
 import adminRouter from './routes/admin.routes'
+import { dbConfig } from './config/db.config'
+import { emailConfig } from './config/mailer.config'
 dotenv.config()
 
 //app
@@ -20,3 +22,9 @@ app.use(adminRouter)
 app.listen(process.env.PORT, () => {
     console.log(`App running on port ${process.env.PORT}`)
 })
+
+//database
+dbConfig()
+
+//email service connection
+emailConfig()
